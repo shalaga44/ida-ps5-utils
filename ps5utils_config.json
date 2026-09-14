@@ -1,0 +1,34 @@
+{
+    "_comment": "PS5-Utils configuration. Edit and re-run; no code changes needed. Delete this file to fall back to built-in defaults. Keys starting with _ are comments and are ignored.",
+
+    "_repo_comment": "Local checkout of ps5rs. Leave empty to clone into a temp directory (no configuration needed, nothing written to your home). Set an explicit path to keep the checkout somewhere permanent. The 'Clone / update ps5rs' action clones it if missing; updates are never automatic.",
+    "repo_path": "",
+    "repo_url": "git@github.com:claimore22/ps5rs.git",
+
+    "_data_comment": "Paths are resolved relative to repo_path unless absolute. nids.csv is the primary catalog (175k entries); stubs.txt is a secondary source that also supplies library attribution via its '# libSceFoo' headers.",
+    "nids_csv": "data/nids.csv",
+    "stubs_txt": "data/stubs.txt",
+
+    "_rename_comment": "How resolved names are applied. name_template fields: {name} resolved symbol, {nid} the 11-char NID, {lib} library id, {mod} module id.",
+    "name_template": "{name}",
+
+    "_suffix_on_collision_comment": "IDA requires unique names. When a resolved name is already taken, append _<nid> rather than silently skipping the rename.",
+    "suffix_on_collision": true,
+
+    "_rename_extern_comment": "Rename the import stub slots in the 'extern' segment (these are what call sites actually reference).",
+    "rename_extern": true,
+
+    "_rename_string_refs_comment": "Rename the data pointers that reference each NID string.",
+    "rename_string_refs": true,
+
+    "_comment_original_comment": "Record the original NID as a repeatable comment, so the pre-rename identity survives in the database.",
+    "comment_original": true,
+
+    "_min_confidence_comment": "Only apply names whose NID resolved from a source in this list. Empty list = accept any source.",
+    "accept_sources": [],
+
+    "_export_comment": "Where reports are written. Relative paths land next to the analyzed binary.",
+    "report_dir": "ps5utils_reports",
+    "unresolved_csv": "unresolved_nids.csv",
+    "deps_report": "module_deps.txt"
+}

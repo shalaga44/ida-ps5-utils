@@ -1,0 +1,8 @@
+{
+    "IDAMetadataDescriptorVersion": 1,
+    "plugin" :
+    {
+      "name" : "ps5utils",
+      "entryPoint" : "ps5utils.py"
+    }
+  }
